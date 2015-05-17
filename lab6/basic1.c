@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 			case 5:
 			case 6:
 				number = read_pin_buf +1 ; 		
-				write_on = number +6 ; 
+				write_on = number +7 ; 
 				write_ret = write(fd , &write_on , 4) ;
 				if(write_ret < 0)
 				{
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 			case 10:
 			case 11:
 				number = read_pin_buf -7 ;
-				write_on = number + 6 ; 
+				write_on = number + 7 ; 
 				write_ret = write(fd , &write_on , 4);
 				if(write_ret < 0)
 				{
