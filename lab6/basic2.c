@@ -40,7 +40,10 @@ int main(int argc, char *argv[])
 		perror("error to open /dev/io_control_dev");
 		exit(1);
 	}
-	int number ;
+	int number = 15 ;
+	write_ret = write(fd , &number , 4) ; 
+	
+
 	printf("led number = %d\n", led_number );
 	write_on = led_number + 6 ;
 	if(led_number == 0)
