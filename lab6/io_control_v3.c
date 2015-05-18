@@ -104,7 +104,7 @@ static ssize_t io_control_read(struct file * file, const char __user * buf, size
 	/*SET PG9 and PG10 PULL-UP*/
 	*pgpul0 &= ~((0x3<<18)|(0x3<<22));
     *pgpul0 |= (0x1<<18)|(0x1<<22);  
-	a10_driver->val = 0x0000 ; 
+	a10_driver->rval = 0x0000 ; 
 	/*read PI4-9*/
 	for(i=4;i<10;i++)
 	{
