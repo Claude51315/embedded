@@ -41,7 +41,9 @@ int main(int argc, char *argv[])
 		switch(read_pin_buf)
 		{
 			case 6:
+				printf("say cheese~~\n");
 				execvp(command , NULL);
+				printf("ok!");
 			break;
 			default:
 			break;
