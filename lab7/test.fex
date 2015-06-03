@@ -155,7 +155,7 @@ uart_dcd = port:PA16<4><1><default><default>
 uart_ring = port:PA17<4><1><default><default>
 
 [uart_para2]
-uart_used = 0
+uart_used = 1
 uart_port = 2
 uart_type = 4
 uart_tx = port:PI18<3><1><default><default>
@@ -201,7 +201,7 @@ uart_tx = port:PA14<4><1><default><default>
 uart_rx = port:PA15<4><1><default><default>
 
 [spi0_para]
-spi_used = 1
+spi_used = 0
 spi_cs_bitmap = 1
 spi_cs0 = port:PI10<2><default><default><default>
 spi_cs1 = port:PI14<2><default><default><default>

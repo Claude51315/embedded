@@ -8,7 +8,7 @@ int main()
 {
 	struct termios toptions ; 
 	int fd ; 
-	fd = open("/dev/ttyS3" , O_RDWR | O_NOCTTY);
+	fd = open("/dev/ttyS1" , O_RDWR | O_NOCTTY);
 	if(fd < 0 )
 	{
 		printf("open error \n");

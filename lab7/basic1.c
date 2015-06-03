@@ -21,15 +21,18 @@ int main(int argc, char *argv[])
 {
 	unsigned int i;
 	char read_pin_buf;
-	const char* command = "./v412grab -o image2.jpg";
+	const char* command = "/home/cubie/claude/embedded/lab7/v4l2grab -o /home/cubie/imageQQ.jpg";
+	//const char* command = "ls -al";
+	//execvp(command , NULL);
 	fd = open("/dev/io_control",O_RDWR);
 	if(fd < 0)
 	{
 		perror("error to open /dev/io_control_dev");
 		exit(1);
 	}
-	int number ; 
-	while(1)
+	int number ;
+	int qq = 0 ;  
+	while(1 )
 	{
 		ret = read(fd, &read_pin,4);
         	if(ret < 0)
@@ -40,10 +43,12 @@ int main(int argc, char *argv[])
 		read_pin_buf=read_pin;
 		switch(read_pin_buf)
 		{
-			case 6:
+			case 4:
 				printf("say cheese~~\n");
-				execvp(command , NULL);
+				//execvp(command , NULL);
+				system(command);
 				printf("ok!");
+				qq = 1 ; 
 			break;
 			default:
 			break;
