@@ -8,12 +8,13 @@ int main()
 {
 	struct termios toptions ; 
 	int fd ; 
-	fd = open("/dev/ttyS1" , O_RDWR | O_NOCTTY);
+	fd = open("/dev/ttyACM0" , O_RDWR | O_NOCTTY);
 	if(fd < 0 )
 	{
 		printf("open error \n");
 		return -1; 
 	}
+	printf("open OK ");
 	speed_t brate = 9600 ;
 	cfsetispeed(&toptions , brate);
 	cfsetospeed(&toptions  , brate );
