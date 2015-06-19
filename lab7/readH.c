@@ -7,9 +7,11 @@
 int main()
 {
 	struct termios toptions ; 
-	int fd ; 
-	fd = open("/dev/ttyACM0" , O_RDWR | O_NOCTTY);
-	if(fd < 0 )
+	int fd  , fd2 ; 
+	printf("wwwwww\n");
+	fd2 = open("/dev/ttyS4" , O_RDWR | O_NOCTTY);
+	fd = open("/dev/ttyACM1" , O_RDWR | O_NOCTTY);
+	if(fd < 0 || fd2 < 0)
 	{
 		printf("open error \n");
 		return -1; 
@@ -18,13 +20,14 @@ int main()
 	speed_t brate = 9600 ;
 	cfsetispeed(&toptions , brate);
 	cfsetospeed(&toptions  , brate );
+	char buf[2] ; 
 	while(1)	
 	{
-		char buf[2];
+		
 		int i = read(fd , buf , 1 );
-		if(i> 0)
+		if(buf[0] != 10 )
 		{
-			printf("%s\n" , buf);
+			printf("%c\n" , buf[0]);
 		}
 	}
 	close(fd); 

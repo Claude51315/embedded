@@ -10,7 +10,7 @@ int main()
 	
 	struct termios toptions ; 
 	int fd ; 
-	fd = open("/dev/ttyACM0" , O_RDWR | O_NOCTTY);
+	fd = open("/dev/ttyS4" , O_RDWR | O_NOCTTY);
 	printf("QAQQQ\n");
 
 	if(fd < 0 )
@@ -23,8 +23,8 @@ int main()
 	cfsetospeed(&toptions  , brate );
 	while(1)	
 	{
-		write(fd , "claude" , 6);
-		sleep(1) ; 
+		write(fd , "1" , 1);
+		sleep(100) ; 
 	}
 	close(fd);
 	
