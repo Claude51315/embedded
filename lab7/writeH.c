@@ -18,13 +18,13 @@ int main()
 		printf("open error \n");
 		return -1; 
 	}
+	printf("QAQQQw\n");
 	speed_t brate = 9600 ;
 	cfsetispeed(&toptions , brate);
 	cfsetospeed(&toptions  , brate );
 	while(1)	
 	{
 		write(fd , "1" , 1);
-		sleep(100) ; 
 	}
 	close(fd);
 	

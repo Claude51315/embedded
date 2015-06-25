@@ -7,16 +7,24 @@
 int main()
 {
 	struct termios toptions ; 
-	int fd  , fd2 ; 
-	printf("wwwwww\n");
-	fd2 = open("/dev/ttyS4" , O_RDWR | O_NOCTTY);
+	int fd;
+	FILE *p;
+	 
 	fd = open("/dev/ttyACM0" , O_RDWR | O_NOCTTY);
-	if(fd < 0 || fd2 < 0)
+	if(fd < 0)
 	{
 		printf("open error \n");
 		return -1; 
 	}
-	printf("open OK ");
+	printf("open ttyACM0 OK \n");
+	  
+	p = fopen("readUX.txt","w");
+	if(p == NULL)
+	{
+		printf("open readUX.txt error\n");
+		return -1 ; 
+	}
+	
 	speed_t brate = 9600 ;
 	cfsetispeed(&toptions , brate);
 	cfsetospeed(&toptions  , brate );
@@ -25,11 +33,21 @@ int main()
 	{
 		
 		int i = read(fd , buf , 1 );
+		p = fopen("readUX.txt","w");
+		if(p == NULL)
+		{
+			printf("open file error\n");
+			return -1 ; 
+		}	
+		buf[1] = '\0';
+		printf("%c\n" , buf[0]);
 		if(buf[0] != 10 )
 		{
-			printf("%c\n" , buf[0]);
+			fprintf(p , "%c", buf[0]);
 		}
-
+		fclose(p);
+		//sleep(5);	
+		
 	}
 	close(fd); 
 	return 0 ;
